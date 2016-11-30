@@ -25,6 +25,31 @@
          return false;
     });
     
+     
+     
+     
+     
+     var iabRef = null;
+    // Inject our custom JavaScript into the InAppBrowser window
+    //
+
+ 
+
+    function iabClose(event) {
+         iabRef.removeEventListener('exit', iabClose);
+    }
+
+     
+     
+     
+        /* button  #takeAwayBtn */
+    $(document).on("click", "#takeAwayBtn", function(evt)
+    {
+         iabRef = window.open('http://apache.org', '_blank', 'location=yes');
+         iabRef.addEventListener('exit', iabClose);
+         return false;
+    });
+    
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();
